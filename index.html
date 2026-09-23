@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Ciudadano Ejemplar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-content">
+    <span class="nav-logo">🇨🇴 Ciudadano Ejemplar</span>
+    <div class="nav-links">
+      <a href="#personaje">Personaje</a>
+      <a href="#principios">Principios</a>
+      <a href="#juego">Juego</a>
+      <a href="#pregunta">Pregúntale</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 1. HERO -->
+<header class="hero" id="inicio">
+  <div class="hero-content fade-in">
+    <h1>Mi Ciudadano Ejemplar</h1>
+    <p class="hero-subtitle">Una guía interactiva para aprender, paso a paso, qué significa ser un buen ciudadano colombiano.</p>
+    <a href="#personaje" class="btn btn-primary">Conoce a tu ciudadano</a>
+  </div>
+  <div class="hero-decor" aria-hidden="true"></div>
+</header>
+
+<main>
+
+  <!-- 2. PRESENTACIÓN DEL PERSONAJE -->
+  <section class="section" id="personaje">
+    <div class="character-card fade-in">
+      <div class="avatar-wrapper">
+        <svg class="avatar" viewBox="0 0 200 200" role="img" aria-label="Avatar del Ciudadano Ejemplar">
+          <circle cx="100" cy="100" r="96" fill="var(--color-bg-card)" stroke="var(--color-blue)" stroke-width="4"/>
+          <circle cx="100" cy="82" r="34" fill="#f2c391"/>
+          <path d="M66 78 Q100 40 134 78 L134 66 Q100 30 66 66 Z" fill="#3a2a1d"/>
+          <path d="M60 190 Q60 130 100 130 Q140 130 140 190 Z" fill="var(--color-blue)"/>
+          <path d="M78 132 L100 150 L122 132 Q100 122 78 132 Z" fill="var(--color-yellow)"/>
+          <circle cx="86" cy="84" r="4" fill="#3a2a1d"/>
+          <circle cx="114" cy="84" r="4" fill="#3a2a1d"/>
+          <path d="M88 98 Q100 108 112 98" stroke="#3a2a1d" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <rect x="60" y="150" width="80" height="10" fill="var(--color-yellow)"/>
+          <rect x="60" y="158" width="80" height="6" fill="var(--color-blue)"/>
+          <rect x="60" y="164" width="80" height="6" fill="var(--color-red)"/>
+        </svg>
+        <span class="avatar-badge" id="citizenBadge" hidden title="Insignia desbloqueada">🏅</span>
+      </div>
+      <div class="character-info">
+        <h2>Ciudadano Ejemplar</h2>
+        <p class="character-quote">“Conozco mis derechos, cumplo mis deberes y respeto a los demás.”</p>
+        <p id="randomPhrase" class="character-random-phrase">¡Hola! Soy tu Ciudadano Ejemplar. No tengo todas las respuestas, pero sí puedo ayudarte a pensar cómo actuar de manera respetuosa, responsable y solidaria.</p>
+        <button class="btn btn-outline" id="newPhraseBtn" type="button">Otra frase 🔄</button>
+
+        <div class="level-tracker">
+          <div class="level-label">
+            <span>Nivel ciudadano (solo por diversión, ¡no mide tu valor como persona!)</span>
+            <span id="levelPercent">0%</span>
+          </div>
+          <div class="level-bar-track">
+            <div class="level-bar-fill" id="levelBarFill"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. QUÉ ES SER UN BUEN CIUDADANO -->
+  <section class="section section-alt">
+    <div class="section-heading fade-in">
+      <h2>¿Qué es ser un buen ciudadano?</h2>
+      <p class="section-lead">
+        Ser un buen ciudadano no significa ser perfecto. Significa conocer nuestros derechos y deberes,
+        respetar a los demás, cuidar lo público, participar responsablemente y actuar buscando el
+        bienestar común.
+      </p>
+    </div>
+    <ul class="value-grid fade-in">
+      <li>Respeta la dignidad y los derechos de otras personas.</li>
+      <li>Cumple sus deberes y respeta las normas.</li>
+      <li>Cuida los espacios y bienes que pertenecen a la comunidad.</li>
+      <li>Participa de manera responsable en asuntos de interés colectivo.</li>
+      <li>Escucha opiniones diferentes y expresa sus ideas sin agredir.</li>
+      <li>Rechaza la discriminación y promueve una convivencia respetuosa.</li>
+      <li>Cuida el medio ambiente.</li>
+      <li>Busca resolver los conflictos mediante el diálogo.</li>
+    </ul>
+  </section>
+
+  <!-- 4. SUS PRINCIPIOS / CATEGORÍAS -->
+  <section class="section" id="principios">
+    <div class="section-heading fade-in">
+      <h2>Sus principios</h2>
+      <p class="section-lead">Elige una categoría para que el Ciudadano Ejemplar te la explique.</p>
+    </div>
+
+    <div class="category-grid fade-in" id="categoryGrid"></div>
+
+    <div class="category-response" id="categoryResponse" hidden>
+      <div class="chat-bubble">
+        <h3 id="categoryTitle"></h3>
+        <p id="categoryText"></p>
+        <ul id="categoryExamples"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. QUÉ HARÍAS TÚ -->
+  <section class="section section-alt" id="juego">
+    <div class="section-heading fade-in">
+      <h2>¿Qué harías tú?</h2>
+      <p class="section-lead">Elige la opción más responsable frente a cada situación cotidiana.</p>
+    </div>
+
+    <div class="game-card fade-in">
+      <div class="game-progress">
+        <span>Situación <span id="situationIndex">1</span> de <span id="situationTotal">1</span></span>
+        <span>Correctas: <span id="correctCount">0</span></span>
+      </div>
+
+      <p class="game-situation" id="gameSituation"></p>
+
+      <div class="game-options" id="gameOptions"></div>
+
+      <p class="game-feedback" id="gameFeedback" aria-live="polite"></p>
+
+      <div class="game-actions">
+        <button class="btn btn-primary" id="nextSituationBtn" type="button" hidden>Siguiente situación</button>
+        <button class="btn btn-outline" id="resetGameBtn" type="button">Reiniciar juego 🔁</button>
+        <button class="btn btn-outline" id="challengeBtn" type="button">Dame un reto ciudadano ✨</button>
+      </div>
+      <p class="challenge-text" id="challengeText"></p>
+    </div>
+  </section>
+
+  <!-- 6-7. PREGÚNTALE AL CIUDADANO + RESPUESTA -->
+  <section class="section" id="pregunta">
+    <div class="section-heading fade-in">
+      <h2>Pregúntale al Ciudadano</h2>
+      <p class="section-lead">Cuéntale una situación cotidiana y recibe una orientación.</p>
+    </div>
+
+    <form class="ask-form fade-in" id="askForm">
+      <label for="askInput" class="ask-label">Describe tu situación</label>
+      <textarea id="askInput" class="ask-input" rows="3" placeholder="Ej: encontré una billetera en el colegio, ¿qué hago?"></textarea>
+      <button class="btn btn-primary" type="submit">Preguntar</button>
+    </form>
+
+    <div class="chat-bubble response-bubble" id="askResponseWrapper" hidden>
+      <span class="chat-avatar">🙂</span>
+      <p id="askResponse"></p>
+    </div>
+  </section>
+
+  <!-- 8. CONCLUSIÓN -->
+  <section class="section conclusion fade-in">
+    <h2>Un último pensamiento</h2>
+    <p>
+      Antes de actuar, piensa: ¿mi decisión respeta a los demás?, ¿cuida lo que es de todos?,
+      ¿cumple las normas?, ¿contribuye a solucionar el problema? Cada pequeña acción responsable
+      construye una mejor comunidad.
+    </p>
+  </section>
+
+</main>
+
+<!-- 9. FOOTER -->
+<footer class="footer">
+  <p>Proyecto escolar de Ciencias Sociales — "Mi Ciudadano Ejemplar". Contenido educativo, no constituye asesoría jurídica.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
